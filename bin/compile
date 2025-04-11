@@ -1,6 +1,15 @@
 #!/bin/sh
 BUILD_DIR=$1
 
-echo "Replacing database.yml with database.ci.yml for CI..."
+echo "🔄 Replacing config/database.yml with config/database.ci.yml..."
 
-cp "$BUILD_DIR/config/database.ci.yml" "$BUILD_DIR/config/database.yml"
+if [ -f "$BUILD_DIR/config/database.ci.yml" ]; then
+  cp "$BUILD_DIR/config/database.ci.yml" "$BUILD_DIR/config/database.yml"
+  echo "✅ Copied successfully."
+
+  echo "📄 Contents of config/database.ci.yml:"
+  cat "$BUILD_DIR/config/database.ci.yml"
+else
+  echo "❌ config/database.ci.yml not found!"
+  exit 1
+fi
