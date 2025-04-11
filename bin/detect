@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "copy-database-yml-ci"
+exit 0
