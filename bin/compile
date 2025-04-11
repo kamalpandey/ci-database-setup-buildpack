@@ -1,0 +1,6 @@
+#!/bin/sh
+BUILD_DIR=$1
+
+echo "Replacing database.yml with database.ci.yml for CI..."
+
+cp "$BUILD_DIR/config/database.ci.yml" "$BUILD_DIR/config/database.yml"
